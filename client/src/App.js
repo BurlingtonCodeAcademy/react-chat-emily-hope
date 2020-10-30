@@ -29,9 +29,9 @@ function App() {
     <div className="App">
       <h1 id="title" onClick={handleUsernameClick} >La Chat Room of <i>dreams</i></h1>
       <div id="chatroom-list">
-        <div class="chatroom" onClick={handleChatOneClick} >Chat Room One</div>
-        <div class="chatroom" onClick={handleChatTwoClick}>Chat Room Two</div>
-        <div class="chatroom" onClick={handleChatThreeClick}>Chat Room Three</div>
+        <div class="chatroom" onClick={handleChatOneClick} >Hopes, Fears, Dreams</div>
+        <div class="chatroom" onClick={handleChatTwoClick}>CAT Chat</div>
+        <div class="chatroom" onClick={handleChatThreeClick}>Politics, $$, Religion</div>
       </div>
       {chatRoom}
     </div>

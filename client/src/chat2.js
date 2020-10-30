@@ -5,7 +5,7 @@ function ChatTwo() {
   return (
     <div>
       <body class='body'>
-        <div class="chatDisplay">Chat Room Two</div>
+        <div id="catChat" class="chatDisplay">Chat Room Two</div>
         <form class="textBox">
           <textarea class="text" type="text" placeholder="Type Message Here" />
           <input type="submit" value="send" class="buttons" />

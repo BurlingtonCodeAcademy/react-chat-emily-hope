@@ -17,6 +17,7 @@ function ChatOne() {
       <body class="body">
         <div class="chatDisplay">Chat Room One{chat}</div>
         <form class="textBox">
+          <input type="text" placeholder="username"/>
           <textarea class="text" type="text" placeholder="Type Message Here" />
           <input type="submit" value="send" class="buttons" />
           <input type="submit" value="refresh" class="buttons" />
