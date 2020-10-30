@@ -41,16 +41,26 @@ class DataStorage {
       response.error = error.toString();
       console.log(error.toString());
     }
-    return response
+    return response;
   }
 
   //3rd to read from it!
-  // async allChat() {
-  //   let response = {status:null, error: null, data: null }
-  //   let it
-
-  // }
-
+  async allChat() {
+    let client = await this.connect();
+    let db = await client.db(this.dbName);
+    let response = { status: null, error: null, data: null };
+    let messages = [];
+    try {
+      let collection = await db.collection(this.dbCollection);
+      await collection.find({}).forEach((message) => messages.push(message));
+      response.status = "ok";
+      response.data = messages;
+    } catch (error) {
+      response.error = error.toString();
+      console.log(error.toString());
+    }
+    return response;
+  }
 }
 
 //exporting to server side

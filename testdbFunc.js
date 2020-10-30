@@ -24,23 +24,37 @@ const insertMessageMain = async (form) => {
   console.log(response);
 };
 
-insertMessageMain({
-  name: "hope",
-  message: "this is hope",
-});
+// insertMessageMain({
+//   name: "hope",
+//   message: "this is hope",
+// });
 
 const insertMessageCat = async (form) => {
-      let date = new Date();
-      let newForm = {
-        name: form.name,
-        message: form.message,
-        sent: date,
-      };
-      let response = await myCatChat.chatInsert(newForm);
-      console.log(response);
-    };
+  let date = new Date();
+  let newForm = {
+    name: form.name,
+    message: form.message,
+    sent: date,
+  };
+  let response = await myCatChat.chatInsert(newForm);
+  console.log(response);
+};
 
-insertMessageCat({
-      name: "NOT A CAT",
-      message: "DEF NOT A CAT"
-})
+ insertMessageCat({
+       name: "KAT WILLIAMS",
+      message: "pur"
+ })
+
+const getAllMainMessages = async () => {
+  let response = await myMainChat.allChat();
+  console.log(response);
+};
+
+getAllMainMessages();
+
+const getAllCatMessages = async () => {
+  let response = await myMainChat.allChat();
+  console.log(response);
+};
+
+getAllCatMessages();
