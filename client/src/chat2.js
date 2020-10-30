@@ -4,8 +4,8 @@ import './App.css'
 function ChatTwo() {
   return (
     <div>
-      <body id='body2'>
-        <div class="chatDisplay">Displays Chat</div>
+      <body class='body'>
+        <div class="chatDisplay">Chat Room Two</div>
         <form class="textBox">
           <textarea class="text" type="text" placeholder="Type Message Here" />
           <input type="submit" value="send" class="buttons" />
