@@ -1,7 +1,6 @@
 //import and set up
 const dbFunc = require("./dbFunc");
 const express = require("express");
-const path = require("path");
 const bodyParser = require("body-parser");
 const port = process.env.PORT || 8000;
 const app = express();
@@ -27,7 +26,7 @@ app.get("/catchat", dbFunc.getAllCatMessages)
 //post route for cat chat
 app.post("/catchat", dbFunc.insertMessageCat)
 
-
+//listen over port
 app.listen(port, () => {
   console.log("listening on port: " + port);
 });

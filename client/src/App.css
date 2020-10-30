@@ -51,6 +51,7 @@
   width: 90vw;
   border: 1px black solid;
   background-color: whitesmoke;
+  overflow-y:auto
 }
 
 /* box where you type */
