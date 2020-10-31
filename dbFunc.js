@@ -18,16 +18,17 @@ let myCatChat = new DataStorage(url, "chatroom", "catchat");
 }
 */
 
-//db function to insert into the main chatrroom
+//db function to insert into the main chatroom
 const insertMessageMain = async (req, res) => {
   //create a date inserted
-  let user = req.body.user;
+  let user = req.body;
+  console.log(req.body)
   let date = new Date();
 
   //create a new message
   let newForm = {
-    name: user.name,
-    message: user.message,
+    name: user.username,
+    message: user.messageInput,
     sent: date,
   };
   //insert into db pls
@@ -38,8 +39,9 @@ const insertMessageMain = async (req, res) => {
   //if it work send over a 200/ OK STATUS
   if (response.status === "ok") {
     res.status(200).send(response.data);
+    res.redirect('/')
   } else {
-    //if it doesnt work send over a 400 and let us know what the error was pls
+    //if it doesn't work send over a 400 and let us know what the error was pls
     res.status(400).send(response.error);
   }
 };
@@ -65,7 +67,7 @@ const insertMessageCat = async (req, res) => {
   if (response.status === "ok") {
     res.status(200).send(response.data);
   } else {
-    //if it doesnt work send over a 400 and let us know what the error was pls
+    //if it doesn't work send over a 400 and let us know what the error was pls
     res.status(400).send(response.error);
   }
 };
@@ -80,7 +82,7 @@ const getAllMainMessages = async (req, res) => {
   if (response.status === "ok") {
     res.status(200).send(response.data);
   } else {
-    //if it doesnt work send over a 400 and let us know what the error was pls
+    //if it doesn't work send over a 400 and let us know what the error was pls
     res.status(400).send(response.error);
   }
 };

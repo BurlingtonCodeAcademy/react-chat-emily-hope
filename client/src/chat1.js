@@ -13,7 +13,7 @@ function ChatOne() {
       });
   }, []);
 
-  //if chat is not a null value than map through this infomration if so.... otherwise please present us with loading data
+  //if chat is not a null value than map through this information if so.... otherwise please present us with loading data
   return (
     <div>
       <body class="body">
@@ -21,16 +21,16 @@ function ChatOne() {
           {chat ? (
             chat.map((chat) => (
               <p>
-                {chat.name} : {chat.message}
+                {chat.name}: {chat.message}
               </p>
             ))
           ) : (
             <p>LOADING CHAT!</p>
           )}
         </div>
-        <form class="textBox">
-          <input type="text" placeholder="username" />
-          <textarea class="text" type="text" placeholder="Type Message Here" />
+        <form class="textBox" method="POST" action="/mainchat">
+          <input name='username' type="text" placeholder="username" />
+          <textarea name='messageInput' class="text" type="text" placeholder="Type Message Here" />
           <input type="submit" value="send" class="buttons" />
           <input type="submit" value="refresh" class="buttons" />
         </form>
