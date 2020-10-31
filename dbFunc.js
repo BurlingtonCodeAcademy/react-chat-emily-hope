@@ -33,13 +33,13 @@ const insertMessageMain = async (req, res) => {
   };
   //insert into db pls
   let response = await myMainChat.chatInsert(newForm);
+  res.redirect('/mainchat')
 
   //troubleshoot PLS REMOVE *****
   console.log(response);
   //if it work send over a 200/ OK STATUS
   if (response.status === "ok") {
     res.status(200).send(response.data);
-    res.redirect('/')
   } else {
     //if it doesn't work send over a 400 and let us know what the error was pls
     res.status(400).send(response.error);
@@ -49,17 +49,18 @@ const insertMessageMain = async (req, res) => {
 //db function to insert into the cat chatroom
 const insertMessageCat = async (req, res) => {
   //create a date inserted
-  let user = req.body.user;
+  let user = req.body;
   let date = new Date();
 
   //create a new message
   let newForm = {
-    name: user.name,
-    message: user.message,
+    name: user.username,
+    message: user.messageInput,
     sent: date,
   };
   //insert into db pls
   let response = await myCatChat.chatInsert(newForm);
+  res.redirect('/catchat')
 
   //troubleshoot PLS REMOVE *****
   console.log(response);

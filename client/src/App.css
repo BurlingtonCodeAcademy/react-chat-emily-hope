@@ -51,7 +51,11 @@
   width: 90vw;
   border: 1px black solid;
   background-color: whitesmoke;
-  overflow-y:auto
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow-y: scroll;
+  
 }
 
 /* box where you type */
