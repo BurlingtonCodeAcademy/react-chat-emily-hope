@@ -14,11 +14,18 @@ function ChatTwo() {
       });
   }, []);
 
+  //refresh entire page every ten second
+  setTimeout(function(){
+    window.location.reload(1);
+  }, 10000);
+
+
   //if chat is not a null value than map through this information if so.... otherwise please present us with loading data
   return (
     <div>
       <body class="body">
         <div class="chatDisplay">
+        <p class="chatparagraph">
           {chat ? (
             chat.map((chat) => (
               <p>
@@ -28,6 +35,7 @@ function ChatTwo() {
           ) : (
             <p>LOADING CHAT!</p>
           )}
+          </p>
         </div>
         <form class="textBox" method="POST" action="/catchat">
           <input name='username' type="text" placeholder="username" />

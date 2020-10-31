@@ -51,12 +51,19 @@
   width: 90vw;
   border: 1px black solid;
   background-color: whitesmoke;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  overflow-y: scroll;
-  
+  overflow-x: hidden;
+  overflow-y: auto;
+  transform: rotate(180deg);
+  direction: rtl;
+  text-align: left;
 }
+
+/* setting margin and overflow for scroll div in chatroom */
+  .chatparagraph {
+  margin: 5px;
+  overflow: hidden;
+  transform: rotate(180deg);
+  }
 
 /* box where you type */
 .textBox{
