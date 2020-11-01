@@ -13,7 +13,8 @@ function ChatOne() {
       });
   }, []);
 
- //refresh window every ten seconds to grab new messages
+
+ //refreshes ENTIRE window every ten seconds to grab new messages
  setTimeout(function(){
   window.location.reload(1);
 }, 10000);
@@ -39,8 +40,8 @@ function ChatOne() {
           </p>
         </div>
         <form class="textBox" method="POST" action="/mainchat">
-          <input name='username' type="text" placeholder="username" />
-          <textarea name='messageInput' class="text" type="text" placeholder="Type Message Here" />
+          <input name='username' type="text" placeholder="username" required/>
+          <textarea name='messageInput' class="text" type="text" placeholder="Type Message Here" required/>
           <input type="submit" value="send" class="buttons" />
           <input type="submit" value="refresh" class="buttons" />
         </form>
