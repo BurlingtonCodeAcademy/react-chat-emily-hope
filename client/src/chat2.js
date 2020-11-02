@@ -4,17 +4,22 @@ import "./App.css";
 function ChatTwo() {
   const [chat, setChat] = useState("");
 
-  //hook to grab our messages from our mainchat database and set them as chat
-  useEffect(() => {
+  const loadMessages = () => {
     fetch("/catchat")
       .then((response) => response.json())
       .then((message) => {
         setChat(message);
-        console.log(message);
       });
-  }, []);
+  }
 
-  //refresh entire page every ten second
+  //hook to grab our messages from our mainchat database and set them as chat
+  useEffect(() => {
+   loadMessages()
+   const intervalId = setInterval(() => {
+    loadMessages()
+  }, 10000);
+  return () => clearInterval(intervalId)
+ }, []);
 
   //if chat is not a null value than map through this information if so.... otherwise please present us with loading data
   return (
@@ -27,6 +32,10 @@ function ChatTwo() {
               chat.map((chat) => (
                 <p>
                   {chat.name}: {chat.message}
+                  <br></br>
+                  <p id="message sent">
+                    message sent: {chat.sent.slice(11, 16)}
+                  </p>
                 </p>
               ))
             ) : (
@@ -35,8 +44,8 @@ function ChatTwo() {
           </p>
         </div>
         {/* form to submit chats */}
-        <form method="POST" action="/mainchat">
-          <div class="form">
+        <form method="POST" action="/catchat">
+          <div class='form'>
             <input
               class="usernameInput"
               name="username"
@@ -57,7 +66,7 @@ function ChatTwo() {
           </div>
         </form>
         <form>
-          <input id ='refresh' type="submit" value="refresh" class="buttons" />
+          <input id='refresh' type="submit" value="refresh" class="buttons" />
         </form>
       </body>
     </div>

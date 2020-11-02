@@ -3,32 +3,38 @@ import React, { useEffect, useState } from "react";
 function ChatOne() {
   const [chat, setChat] = useState("");
 
-  //hook to grab our messages from our mainchat database and set them as chat
-  useEffect(() => {
+  const loadMessages = () => {
     fetch("/mainchat")
       .then((response) => response.json())
       .then((message) => {
         setChat(message);
-        console.log(message);
       });
+  };
+
+  //hook to grab our messages from our mainchat database and set them as chat
+  useEffect(() => {
+    loadMessages();
+    const intervalId = setInterval(() => {
+      loadMessages();
+    }, 10000);
+    return () => clearInterval(intervalId);
   }, []);
-
-  //refreshes ENTIRE window every ten seconds to grab new messages
-
 
   //if chat is not a null value than map through this information if so.... otherwise please present us with loading data
   return (
     <div>
       <body class="body">
-        <h1 class='chat-title'>Welcome to the Main Chat</h1>
+        <h1 class="chat-title">Welcome to the Main Chat</h1>
         <div class="chatDisplay">
           <p class="chatParagraph">
             {chat ? (
               chat.map((chat) => (
                 <p>
                   {chat.name}: {chat.message}
-                  {/* <p id="message sent">message sent:{chat.sent.slice(11,16)}
-                </p> NEED TO WORK ON MESSAGE TIME SENT STAMP*/}
+                  <br></br>
+                  <p id="message sent">
+                    message sent: {chat.sent.slice(11, 16)}
+                  </p>
                 </p>
               ))
             ) : (
@@ -38,7 +44,7 @@ function ChatOne() {
         </div>
         {/* form to submit chats */}
         <form method="POST" action="/mainchat">
-          <div class='form'>
+          <div class="form">
             <input
               class="usernameInput"
               name="username"
@@ -46,7 +52,7 @@ function ChatOne() {
               placeholder="username"
               required
             />
-            <div class="textBox" >
+            <div class="textBox">
               <textarea
                 name="messageInput"
                 class="text"
@@ -55,9 +61,11 @@ function ChatOne() {
                 required
               />
               <input type="submit" value="send" class="buttons" />
-              <input type="submit" value="refresh" class="buttons" />
             </div>
           </div>
+        </form>
+        <form>
+          <input id="refresh2" type="submit" value="refresh" class="buttons" />
         </form>
       </body>
     </div>
