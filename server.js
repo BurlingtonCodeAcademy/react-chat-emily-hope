@@ -6,7 +6,7 @@ const port = process.env.PORT || 8000;
 const app = express();
 const path = require("path");
 const staticDir = process.env.DEV ? "./client/public" : "./client/build";
-require("dotenv").config();
+
 
 //bind directory
 app.use(express.static(staticDir));

@@ -64,7 +64,6 @@ function ChatOne() {
             </div>
           </div>
         </form>
-        <button onclick={window.reload()}>Refresh Page</button>
       </body>
     </div>
   );

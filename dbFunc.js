@@ -1,6 +1,8 @@
 const DataStorage = require("./data.js");
+require("dotenv").config();
+
 //my DB URL
-const url = "mongodb+srv://emilysaber:password1234@cluster0.yjuvt.mongodb.net/";
+const url = `mongodb+srv://emilysaber:${process.env.DBPASS}@cluster0.yjuvt.mongodb.net/`;
 //****** EM FIGURE OUT HOW TO GET ENV PW IN HERE BEFORE SUBMITTING!!!!! */
 
 //DB TO MAIN CHAT
