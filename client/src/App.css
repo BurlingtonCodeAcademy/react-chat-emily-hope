@@ -104,12 +104,18 @@ a:hover {
 }
 /* send and refresh button */
 .buttons {
-  width: 75px;
+  width: 90px;
   height: 50px;
   font-size: 20px;
-  text-align: left;
+  text-align: center;
   background-color: #ffc19f;
   color: black;
+}
+/* refresh button */
+#refresh{
+  margin-left: 60px;
+  width: 61vw;
+  text-align: center;
 }
 /*-------------------------- Body Section ------------------------*/
 /* body */

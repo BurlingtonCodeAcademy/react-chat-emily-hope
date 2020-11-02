@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import './App.css'
+import React, { useState, useEffect } from "react";
+import "./App.css";
 
 function ChatTwo() {
   const [chat, setChat] = useState("");
@@ -15,32 +15,28 @@ function ChatTwo() {
   }, []);
 
   //refresh entire page every ten second
-  setTimeout(function(){
-    window.location.reload(1);
-  }, 10000);
-
 
   //if chat is not a null value than map through this information if so.... otherwise please present us with loading data
   return (
     <div>
       <body class="body">
-        <h1 class='chat-title'>Welcome to the Cat Chat</h1>
+        <h1 class="chat-title">Welcome to the Cat Chat</h1>
         <div class="chatDisplay">
-        <p class="chatParagraph">
-          {chat ? (
-            chat.map((chat) => (
-              <p>
-                {chat.name}: {chat.message}
-              </p>
-            ))
-          ) : (
-            <p>LOADING CHAT!</p>
-          )}
+          <p class="chatParagraph">
+            {chat ? (
+              chat.map((chat) => (
+                <p>
+                  {chat.name}: {chat.message}
+                </p>
+              ))
+            ) : (
+              <p>LOADING CHAT!</p>
+            )}
           </p>
         </div>
         {/* form to submit chats */}
         <form method="POST" action="/mainchat">
-          <div class='form'>
+          <div class="form">
             <input
               class="usernameInput"
               name="username"
@@ -48,7 +44,7 @@ function ChatTwo() {
               placeholder="username"
               required
             />
-            <div class="textBox" >
+            <div class="textBox">
               <textarea
                 name="messageInput"
                 class="text"
@@ -57,9 +53,11 @@ function ChatTwo() {
                 required
               />
               <input type="submit" value="send" class="buttons" />
-              <input type="submit" value="refresh" class="buttons" />
             </div>
           </div>
+        </form>
+        <form>
+          <input id ='refresh' type="submit" value="refresh" class="buttons" />
         </form>
       </body>
     </div>

@@ -14,9 +14,7 @@ function ChatOne() {
   }, []);
 
   //refreshes ENTIRE window every ten seconds to grab new messages
-  setTimeout(function () {
-    window.location.reload(1);
-  }, 10000);
+
 
   //if chat is not a null value than map through this information if so.... otherwise please present us with loading data
   return (
