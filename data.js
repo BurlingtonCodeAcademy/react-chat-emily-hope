@@ -13,9 +13,11 @@ class DataStorage {
   //we are going to want to create 3 methods (to start) for this database
   //1st to connect to it!
   async connect() {
+    //if these is already a connection use it
     if (this.dbClient && this.dbClient.isConnected()) {
       return this.dbClient;
     } else {
+      //otherwise set up a new connection
       console.log(`Connecting to ${this.dbUrl}`);
       this.dbClient = await MongoClient.connect(this.dbUrl, {
         useNewUrlParser: true,
@@ -26,7 +28,7 @@ class DataStorage {
     }
   }
 
-  //2nd to write to it!
+  //write to our database
   async chatInsert(form) {
     let response = { status: null, error: null };
     let client = await this.connect();

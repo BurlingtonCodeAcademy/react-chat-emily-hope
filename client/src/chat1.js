@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 function ChatOne() {
   const [chat, setChat] = useState("");
 
+  //function to fetch from the path set up on our server
   const loadMessages = () => {
     fetch("/mainchat")
       .then((response) => response.json())
@@ -11,12 +12,15 @@ function ChatOne() {
       });
   };
 
-  //hook to grab our messages from our mainchat database and set them as chat
+  //hook
   useEffect(() => {
+    //call that function that fetches and present us with the messages
     loadMessages();
+    //create a function that re loads every 10 seconds
     const intervalId = setInterval(() => {
       loadMessages();
     }, 10000);
+    //have react clean up the interval and reset it each time
     return () => clearInterval(intervalId);
   }, []);
 
@@ -30,10 +34,10 @@ function ChatOne() {
             {chat ? (
               chat.map((chat) => (
                 <p>
-                  {chat.name}: {chat.message}
+                  <b>{chat.name}:</b> {chat.message}
                   <br></br>
                   <p id="message sent">
-                    message sent: {chat.sent.slice(11, 16)}
+                    <i>message sent: {chat.sent.slice(0, 10)}</i>
                   </p>
                 </p>
               ))

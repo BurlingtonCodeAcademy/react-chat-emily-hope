@@ -19,15 +19,11 @@ function App() {
               </Link>
             </div>
             <div className="chatroom-list">
-              <div className="chatroom" >
-                <Link to="/mainchat">
-                  Hopes, Fears, Dreams
-                </Link>
+              <div className="chatroom">
+                <Link to="/mainchat">Hopes, Fears, Dreams</Link>
               </div>
-              <div className="chatroom" >
-                <Link to="/catchat" >
-                  CAT Chat
-                </Link>
+              <div className="chatroom">
+                <Link to="/catchat">CAT Chat</Link>
               </div>
               <div className="chatroom">Religion, $$, Politics</div>
             </div>
