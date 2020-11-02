@@ -1,10 +1,9 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Link, Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 import ChatOne from "./chat1.js";
 import ChatTwo from "./chat2.js";
-import ChatThree from "./chat3.js";
-import Username from "./username.js";
+import MainChat from "./mainChat.js";
 
 function App() {
   return (
@@ -19,21 +18,24 @@ function App() {
                 </h1>
               </Link>
             </div>
-            <div id="chatroom-list">
-              <Link className="chatroom" to="/mainchat">
-                Hopes, Fears, Dreams
-              </Link>
-            </div>
-            <div>
-              <Link to="/catchat" className="chatroom">
-                CAT Chat
-              </Link>
+            <div className="chatroom-list">
+              <div className="chatroom" >
+                <Link to="/mainchat">
+                  Hopes, Fears, Dreams
+                </Link>
+              </div>
+              <div className="chatroom" >
+                <Link to="/catchat" >
+                  CAT Chat
+                </Link>
+              </div>
+              <div className="chatroom">Religion, $$, Politics</div>
             </div>
           </div>
         </nav>
         <Switch>
           <Route exact={true} path="/">
-            <Username />
+            <MainChat />
           </Route>
           <Route exact={true} path="/mainchat">
             <ChatOne />

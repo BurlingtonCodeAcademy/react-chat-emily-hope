@@ -1,5 +1,5 @@
 /* title */
-#title{
+#title {
   text-align: center;
   font-size: 60px;
   background-color: #fff19f;
@@ -7,16 +7,17 @@
   padding: 40px 0;
   color: #e29fff;
 }
+/*------------------------- Nav Bar Section -----------------------*/
 /* chatroom navigation bar */
-#chatroom-list{
-  display:flex;
+.chatroom-list {
+  display: flex;
   justify-content: space-around;
   border-bottom: 3px black solid;
   padding: 30px 0;
-  background-color:#fff19f;
+  background-color: #fff19f;
 }
-/* individual chat rooms in nav bar */
-.chatroom{
+/* individual chat rooms */
+.chatroom {
   background-color: #ffc19f;
   height: 30px;
   width: 170px;
@@ -24,26 +25,38 @@
   text-align: center;
   position: relative;
 }
-/* Username style */
-#username-page{
-  background-color: #e29fff;
+/* link decoration */
+a {
+  text-decoration: none;
+  color: black;
 }
-#username{
+a:hover {
+  background-color: chocolate;
+}
+/*-------------------------- Main Section -------------------------*/
+/* containing div */
+#bodyMain{
+  padding-top: 40px;
   text-align: center;
-  padding: 300px;
+  background-color: cornflowerblue;
+  height: 50vh;
 }
-#username-input{
-  height: 30px;
-  width: 300px;
-  font-size: 30px;
+/* title */
+#main-title{
+  margin: 0;
 }
-#username-submit{
-  width: 75px;
+/* subtitle */
+#main-subtitle{
+  margin: 0;
 }
-
+/* sub subtitle  */
+#chatClick{
+  margin: 0;
+}
+/*------------------------ ChatRoom Section -----------------------*/
 /* Common Chat CSS between the three rooms */
 /* chat display */
-.chatDisplay{
+.chatDisplay {
   margin: 60px;
   margin-top: 0;
   margin-bottom: 0px;
@@ -57,44 +70,55 @@
   direction: rtl;
   text-align: left;
 }
-
 /* setting margin and overflow for scroll div in chatroom */
-  .chatparagraph {
+.chatParagraph {
   margin: 5px;
   overflow: hidden;
   transform: rotate(180deg);
-  }
-
-/* box where you type */
-.textBox{
+}
+/*-------------------------- Input Section ------------------------*/
+/* form styling */
+.form {
+  display: flex;
+  flex-direction: column;
+}
+/* Username style */
+.usernameInput {
+  height: 30px;
+  width: 30vw;
+  margin-left: 60px;
+  margin-top: 10px;
+  font-size: 20px;
+}
+/* text and buttons container */
+.textBox {
   display: flex;
   align-items: flex-end;
-}
-.text{
+} 
+/* text input */
+.text {
   margin-left: 60px;
   width: 60vw;
   height: 100px;
   font-size: 30px;
-  margin-top: 10px;
 }
 /* send and refresh button */
-.buttons{
+.buttons {
   width: 75px;
   height: 50px;
-  font-size:20px;
+  font-size: 20px;
   text-align: left;
   background-color: #ffc19f;
   color: black;
 }
-/* chatRoom One */
-.body{
+/*-------------------------- Body Section ------------------------*/
+/* body */
+.body {
   background-color: #9fd9ff;
-  padding: 60px 0;
+  padding: 40px 0;
 }
-
-/* Cat Chat display */
-#catChat{
-  background-image: url("./images/cats.jpg");
-  opacity: 0.7;
-  background-size: inherit;
+.chat-title{
+  text-align: center;
+  font-size: 40px;
+  margin:0;
 }

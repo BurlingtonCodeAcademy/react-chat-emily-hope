@@ -24,8 +24,9 @@ function ChatTwo() {
   return (
     <div>
       <body class="body">
+        <h1 class='chat-title'>Welcome to the Cat Chat</h1>
         <div class="chatDisplay">
-        <p class="chatparagraph">
+        <p class="chatParagraph">
           {chat ? (
             chat.map((chat) => (
               <p>
@@ -37,11 +38,28 @@ function ChatTwo() {
           )}
           </p>
         </div>
-        <form class="textBox" method="POST" action="/catchat">
-          <input name='username' type="text" placeholder="username" />
-          <textarea name='messageInput' class="text" type="text" placeholder="Type Message Here" />
-          <input type="submit" value="send" class="buttons" />
-          <input type="submit" value="refresh" class="buttons" />
+        {/* form to submit chats */}
+        <form method="POST" action="/mainchat">
+          <div class='form'>
+            <input
+              class="usernameInput"
+              name="username"
+              type="text"
+              placeholder="username"
+              required
+            />
+            <div class="textBox" >
+              <textarea
+                name="messageInput"
+                class="text"
+                type="text"
+                placeholder="Type Message Here"
+                required
+              />
+              <input type="submit" value="send" class="buttons" />
+              <input type="submit" value="refresh" class="buttons" />
+            </div>
+          </div>
         </form>
       </body>
     </div>
