@@ -7,9 +7,9 @@ const app = express();
 const path = require("path");
 const staticDir = process.env.DEV ? "./client/public" : "./client/build";
 
-
 //bind directory
 app.use(express.static(staticDir));
+
 // middleware for post
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

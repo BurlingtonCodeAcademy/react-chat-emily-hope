@@ -24,7 +24,6 @@ let myCatChat = new DataStorage(url, "chatroom", "catchat");
 const insertMessageMain = async (req, res) => {
   //create a date inserted
   let user = req.body;
-  console.log(req.body)
   let date = new Date();
 
   //create a new message
@@ -35,10 +34,8 @@ const insertMessageMain = async (req, res) => {
   };
   //insert into db pls
   let response = await myMainChat.chatInsert(newForm);
-  res.redirect('/mainchat')
+  res.redirect("/mainchat");
 
-  //troubleshoot PLS REMOVE *****
-  console.log(response);
   //if it work send over a 200/ OK STATUS
   if (response.status === "ok") {
     res.status(200).send(response.data);
@@ -62,10 +59,8 @@ const insertMessageCat = async (req, res) => {
   };
   //insert into db pls
   let response = await myCatChat.chatInsert(newForm);
-  res.redirect('/catchat')
+  res.redirect("/catchat");
 
-  //troubleshoot PLS REMOVE *****
-  console.log(response);
   //if it work send over a 200/ OK STATUS
   if (response.status === "ok") {
     res.status(200).send(response.data);
@@ -80,7 +75,6 @@ const getAllMainMessages = async (req, res) => {
   //connect to DB for messages
   let response = await myMainChat.allChat();
   //troubleshoot PLS REMOVE *****
-  console.log(response);
   //if it work send over a 200/ OK STATUS
   if (response.status === "ok") {
     res.status(200).send(response.data);
@@ -94,8 +88,6 @@ const getAllMainMessages = async (req, res) => {
 const getAllCatMessages = async (req, res) => {
   //connect to DB for messages
   let response = await myCatChat.allChat();
-  //troubleshoot PLS REMOVE *****
-  console.log(response);
   //if it work send over a 200/ OK STATUS
   if (response.status === "ok") {
     res.status(200).send(response.data);
