@@ -3,20 +3,23 @@ import React, { useEffect, useState } from "react";
 function ChatOne() {
   const [chat, setChat] = useState("");
 
-  //hook to grab our messages from our mainchat database and set them as chat
-  useEffect(() => {
+  const loadMessages = () => {
     fetch("/mainchat")
       .then((response) => response.json())
       .then((message) => {
         setChat(message);
-        console.log(message);
       });
+  }
+
+  //hook to grab our messages from our mainchat database and set them as chat
+  useEffect(() => {
+   loadMessages()
+   const intervalId = setInterval(() => {
+     loadMessages()
+   }, 10000);
+   return () => clearInterval(intervalId)
   }, []);
 
-  //refreshes ENTIRE window every ten seconds to grab new messages
-  setTimeout(function () {
-    window.location.reload(1);
-  }, 10000);
 
   //if chat is not a null value than map through this information if so.... otherwise please present us with loading data
   return (
@@ -29,8 +32,9 @@ function ChatOne() {
               chat.map((chat) => (
                 <p>
                   {chat.name}: {chat.message}
-                  {/* <p id="message sent">message sent:{chat.sent.slice(11,16)}
-                </p> NEED TO WORK ON MESSAGE TIME SENT STAMP*/}
+                  <p id="message sent">message sent:{chat.sent.slice(11,16)}
+             
+                </p>
                 </p>
               ))
             ) : (
@@ -57,10 +61,10 @@ function ChatOne() {
                 required
               />
               <input type="submit" value="send" class="buttons" />
-              <input type="submit" value="refresh" class="buttons" />
             </div>
           </div>
         </form>
+        <button onclick={window.reload()}>Refresh Page</button>
       </body>
     </div>
   );

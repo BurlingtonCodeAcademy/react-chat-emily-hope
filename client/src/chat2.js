@@ -4,21 +4,22 @@ import './App.css'
 function ChatTwo() {
   const [chat, setChat] = useState("");
 
-  //hook to grab our messages from our mainchat database and set them as chat
-  useEffect(() => {
+  const loadMessages = () => {
     fetch("/catchat")
       .then((response) => response.json())
       .then((message) => {
         setChat(message);
-        console.log(message);
       });
-  }, []);
+  }
 
-  //refresh entire page every ten second
-  setTimeout(function(){
-    window.location.reload(1);
+  //hook to grab our messages from our mainchat database and set them as chat
+  useEffect(() => {
+   loadMessages()
+   const intervalId = setInterval(() => {
+    loadMessages()
   }, 10000);
-
+  return () => clearInterval(intervalId)
+ }, []);
 
   //if chat is not a null value than map through this information if so.... otherwise please present us with loading data
   return (
@@ -39,7 +40,7 @@ function ChatTwo() {
           </p>
         </div>
         {/* form to submit chats */}
-        <form method="POST" action="/mainchat">
+        <form method="POST" action="/catchat">
           <div class='form'>
             <input
               class="usernameInput"
