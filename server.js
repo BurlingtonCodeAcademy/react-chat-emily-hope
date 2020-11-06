@@ -25,6 +25,7 @@ app.get("/catchat", dbFunc.getAllCatMessages);
 
 //post route for cat chat
 app.post("/catchat", dbFunc.insertMessageCat);
+
 app.get("*", (response, request) => {
   response.sendFile(path.resolve("index.html"));
 });

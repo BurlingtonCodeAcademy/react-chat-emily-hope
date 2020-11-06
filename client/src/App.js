@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link, Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import "./App.css";
-import ChatOne from "./chat1.js";
-import ChatTwo from "./chat2.js";
-import MainChat from "./mainChat.js";
+import "./components/App.css";
+import ChatOne from "./components/chat1.js";
+import ChatTwo from "./components/chat2.js";
+import MainChat from "./components/mainChat.js";
 
 function App() {
   return (
