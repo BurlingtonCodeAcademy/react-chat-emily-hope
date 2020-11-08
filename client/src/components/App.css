@@ -1,0 +1,139 @@
+/* title */
+#title {
+  text-align: center;
+  font-size: 60px;
+  background-color: #fff19f;
+  margin: 0;
+  padding: 40px 0;
+  color: #e29fff;
+}
+/*------------------------- Nav Bar Section -----------------------*/
+/* chatroom navigation bar */
+.chatroom-list {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 3px black solid;
+  padding: 30px 0;
+  background-color: #fff19f;
+}
+/* individual chat rooms */
+.chatroom {
+  background-color: #ffc19f;
+  height: 30px;
+  width: 170px;
+  padding-top: 10px;
+  text-align: center;
+  position: relative;
+}
+/* link decoration */
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  background-color: chocolate;
+}
+/*-------------------------- Main Section -------------------------*/
+/* containing div */
+#bodyMain {
+  padding-top: 40px;
+  text-align: center;
+  background-color: cornflowerblue;
+  height: 50vh;
+}
+/* title */
+#main-title {
+  margin: 0;
+}
+/* subtitle */
+#main-subtitle {
+  margin: 0;
+}
+/* sub subtitle  */
+#chatClick {
+  margin: 0;
+}
+/*------------------------ ChatRoom Section -----------------------*/
+/* Common Chat CSS between the three rooms */
+/* chat display */
+.chatDisplay {
+  margin: 60px;
+  margin-top: 0;
+  margin-bottom: 0px;
+  height: 400px;
+  width: 90vw;
+  border: 1px black solid;
+  background-color: whitesmoke;
+  overflow-x: hidden;
+  overflow-y: auto;
+  transform: rotate(180deg);
+  direction: rtl;
+  text-align: left;
+}
+/* setting margin and overflow for scroll div in chatroom */
+.chatParagraph {
+  margin: 5px;
+  overflow: hidden;
+  transform: rotate(180deg);
+}
+/*-------------------------- Input Section ------------------------*/
+/* form styling */
+.form {
+  display: flex;
+  flex-direction: column;
+}
+/* Username style */
+.usernameInput {
+  height: 30px;
+  width: 30vw;
+  margin-left: 60px;
+  margin-top: 10px;
+  font-size: 20px;
+}
+/* text and buttons container */
+.textBox {
+  display: flex;
+  align-items: flex-end;
+}
+/* text input */
+.text {
+  margin-left: 60px;
+  width: 60vw;
+  height: 100px;
+  font-size: 30px;
+}
+/* send and refresh button */
+.buttons {
+  width: 90px;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;
+  background-color: #ffc19f;
+  color: black;
+}
+/* refresh button */
+#refresh {
+  margin-left: 60px;
+  width: 61vw;
+  text-align: center;
+}
+#refresh2 {
+  margin-left: 60px;
+  width: 61vw;
+  text-align: center;
+}
+/*-------------------------- Body Section ------------------------*/
+/* body */
+.body {
+  background-color: #9fd9ff;
+  padding: 40px 0;
+}
+.chat-title {
+  text-align: center;
+  font-size: 40px;
+  margin: 0;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
